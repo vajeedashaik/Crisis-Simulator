@@ -32,8 +32,15 @@ Do not read entire codebase to understand progress — read this file.
 ✅ CrisisCoreEnv.get_info — counts and hazard zones
 ✅ tests — 86/86 passing in tests/unit/test_environment.py
 
-## Phase 3 — [Phase Name]
-⏳ [feature name] — [one line description]
+## Phase 3 — Reward Functions
+✅ evacuation_speed_reward — +1.0/new evacuee with time bonus, capped at 5.0
+✅ route_safety_reward — -3.0 zone hazard, -2.0 exit-path hazard
+✅ dispatch_accuracy_reward — FIRE_BRIGADE/FIRE+SMOKE +2.0, EMS +1.0, POLICE penalized
+✅ severity_accuracy_reward — ground-truth ratio → level, scored by distance
+✅ format_compliance_reward — +0.2 all required fields present, -1.0 missing
+✅ timeout_penalty — -5.0 done with unrescued people
+✅ compute_reward — weighted sum into RewardBreakdown
+✅ tests — 46/46 passing in tests/unit/test_rewards.py
 
 ## Phase 4 — [Phase Name]
 ⏳ [feature name] — [one line description]

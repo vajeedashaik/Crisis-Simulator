@@ -10,43 +10,30 @@ One session = one summary. Previous summaries live in phase-log.md.
 ## Last Session
 
 ### Date
-[YYYY-MM-DD]
+2026-04-24
 
 ### Phase
-[Phase number and name]
+Phase 3 — Reward Functions
 
 ### What Was Done
-
-[one liner]
-[one liner]
-[one liner]
-
+- Created rewards.py with 6 reward functions + compute_reward combiner
+- Added anti-hacking test + 3-scenario table in __main__ block
+- Created tests/unit/test_rewards.py with 46 tests, all passing
 
 ### What Was NOT Done (carry over)
-
-[one liner]
-[one liner]
-
+- None — phase 3 complete
 
 ### Errors Encountered
-
-[file:function] — [reason] — [how it was fixed]
-
+- None
 
 ### Tests Status
-Total: 0 | Passed: 0 | Failed: 0
+Total: 46 | Passed: 46 | Failed: 0
 
 ### Commit Messages Generated
-
-[commit message]
-[commit message]
-
+feat(rewards): implement phase 3 reward functions with 46 tests
 
 ### Notes for Next Session
-
-[one liner]
-[one liner]
-
+- Proceed to Phase 4 after user confirmation
 
 ---
 
