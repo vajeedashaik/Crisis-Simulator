@@ -17,14 +17,20 @@ Do not read entire codebase to understand progress — read this file.
 
 ---
 
-## Phase 1 — [Phase Name]
-⏳ [feature name] — [one line description]
-⏳ [feature name] — [one line description]
-⏳ [feature name] — [one line description]
+## Phase 1 — Data Schema
+✅ enums — ActionType, ServiceType, HazardType, SeverityLevel (4 enums)
+✅ dataclasses — Zone, Person, Hazard, SensorReading, BuildingState, AgentAction, AgentObservation, RewardBreakdown (8 classes)
+✅ tests — 61/61 passing in tests/unit/test_schema.py
 
-## Phase 2 — [Phase Name]
-⏳ [feature name] — [one line description]
-⏳ [feature name] — [one line description]
+## Phase 2 — RL Environment
+✅ CrisisCoreEnv.__init__ — config loading with defaults
+✅ CrisisCoreEnv.reset — grid zone layout, adjacency wiring, exits, people, hazards, sensors
+✅ CrisisCoreEnv.step — all 4 action types, hazard spread, sensor refresh, reward, termination
+✅ CrisisCoreEnv._shortest_path — BFS across zone connections
+✅ CrisisCoreEnv._get_observation — partial observability, occupancy, SOS, exits
+✅ CrisisCoreEnv._check_termination — all-evacuated or max-ticks
+✅ CrisisCoreEnv.get_info — counts and hazard zones
+✅ tests — 86/86 passing in tests/unit/test_environment.py
 
 ## Phase 3 — [Phase Name]
 ⏳ [feature name] — [one line description]
