@@ -8,16 +8,16 @@ Overwrite when context changes. Keep it minimal and current.
 ---
 
 ## Current Phase
-Phase: 5
-Prompt file: prompts/phase-5.md
+Phase: 6
+Prompt file: prompts/phase-6.md
 Status: complete
 
 ---
 
 ## Currently Working On
-Feature: curriculum.py — curriculum learning + incident log
-File(s): curriculum.py, tests/unit/test_curriculum.py
-Status: done — 31/31 tests passing, simulation runs clean
+Feature: train.py — GRPO training script with Unsloth/TRL
+File(s): train.py
+Status: done — script complete, Colab-ready
 
 ---
 
@@ -29,18 +29,18 @@ None.
 
 ## Known Blockers
 
-None.
+None. Script requires Colab with GPU + unsloth/trl installed.
 
 ---
 
 ## Last Commit Message
-feat(curriculum): implement phase 5 curriculum learning with 31 tests
+feat(training): implement phase 6 GRPO training script with Unsloth
 
 ---
 
 ## Do Not Forget
 
-Phase 6 requires explicit user confirmation before starting.
+All 6 phases complete. Next step is user-confirmed.
 
 ---
 

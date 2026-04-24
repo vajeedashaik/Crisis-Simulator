@@ -35,6 +35,8 @@ ROLLED BACK — changes reverted, reason in line
 
 ---
 
+[2026-04-24] [Phase 6] COMPLETE — train.py built with GRPO/Unsloth for CrisisCoreEnv
+
 ## Rules for This File
 - Never delete or overwrite any line
 - Append only — one line per session or milestone
