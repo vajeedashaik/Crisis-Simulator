@@ -8,44 +8,39 @@ Overwrite when context changes. Keep it minimal and current.
 ---
 
 ## Current Phase
-Phase: [number]
-Prompt file: prompts/phase-X.md
-Status: [in progress / complete / blocked]
+Phase: 1
+Prompt file: prompts/phase-1.md
+Status: complete
 
 ---
 
 ## Currently Working On
-Feature: [name]
-File(s): [list]
-Status: [what is done, what is not]
+Feature: schema.py — shared data structures
+File(s): schema.py
+Status: done — all 4 enums and 8 dataclasses implemented and verified
 
 ---
 
 ## Open Questions
 
-[question that needs user input before proceeding]
-[question that needs user input before proceeding]
-
+None.
 
 ---
 
 ## Known Blockers
 
-[what is blocked and why]
-
+None.
 
 ---
 
 ## Last Commit Message
-[most recent commit message generated]
+feat: add schema.py with all enums and dataclasses for Phase 1
 
 ---
 
 ## Do Not Forget
 
-[critical thing to remember for next session]
-[critical thing to remember for next session]
-
+Phase 2 requires explicit user confirmation before starting.
 
 ---
 
