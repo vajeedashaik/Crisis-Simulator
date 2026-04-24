@@ -27,6 +27,8 @@ ROLLED BACK — changes reverted, reason in line
 [2026-04-24] [Phase 2] COMPLETE — 86/86 tests passing in tests/unit/test_environment.py
 [2026-04-24] [Phase 3] COMPLETE — rewards.py built with 6 reward fns + compute_reward
 [2026-04-24] [Phase 3] COMPLETE — 46/46 tests passing in tests/unit/test_rewards.py
+[2026-04-24] [Phase 4] COMPLETE — agents.py built with 4 agent classes + build_agent_prompt
+[2026-04-24] [Phase 4] COMPLETE — 31/31 tests passing in tests/unit/test_agents.py
 
 ---
 

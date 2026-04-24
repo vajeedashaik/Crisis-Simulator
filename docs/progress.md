@@ -42,8 +42,13 @@ Do not read entire codebase to understand progress — read this file.
 ✅ compute_reward — weighted sum into RewardBreakdown
 ✅ tests — 46/46 passing in tests/unit/test_rewards.py
 
-## Phase 4 — [Phase Name]
-⏳ [feature name] — [one line description]
+## Phase 4 — Multi-Agent Hierarchy
+✅ EvacuationAgent — observe (zone_occupancy/exits/hazards) + act (ROUTE_ZONE, safe default to nearest exit)
+✅ DispatchAgent — observe (sos/severity/hazard_types) + act (DISPATCH_SERVICE, safe default FIRE_BRIGADE)
+✅ CommsAgent — observe (routing_decision/occupancy) + act (BROADCAST_PA, safe default generic message)
+✅ OrchestratorAgent — parallel evac+dispatch via ThreadPoolExecutor, feeds evac action to comms
+✅ build_agent_prompt — system role paragraph + JSON obs + optional incident log
+✅ tests — 31/31 passing in tests/unit/test_agents.py
 
 ## Phase 5 — [Phase Name]
 ⏳ [feature name] — [one line description]

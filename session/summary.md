@@ -13,27 +13,30 @@ One session = one summary. Previous summaries live in phase-log.md.
 2026-04-24
 
 ### Phase
-Phase 3 — Reward Functions
+Phase 4 — Multi-Agent Hierarchy
 
 ### What Was Done
-- Created rewards.py with 6 reward functions + compute_reward combiner
-- Added anti-hacking test + 3-scenario table in __main__ block
-- Created tests/unit/test_rewards.py with 46 tests, all passing
+- Created agents.py with EvacuationAgent, DispatchAgent, CommsAgent, OrchestratorAgent, build_agent_prompt
+- OrchestratorAgent runs evac+dispatch in parallel via ThreadPoolExecutor; feeds evac action to CommsAgent
+- Safe defaults for all agents on JSON parse failure
+- Added integration smoke-test in __main__ block (3-tick mock run)
+- Created tests/unit/test_agents.py with 31 tests, all passing
+- Full regression: 224/224 tests passing
 
 ### What Was NOT Done (carry over)
-- None — phase 3 complete
+- None — phase 4 complete
 
 ### Errors Encountered
 - None
 
 ### Tests Status
-Total: 46 | Passed: 46 | Failed: 0
+Total: 224 | Passed: 224 | Failed: 0
 
 ### Commit Messages Generated
-feat(rewards): implement phase 3 reward functions with 46 tests
+feat(agents): implement phase 4 multi-agent hierarchy with 31 tests
 
 ### Notes for Next Session
-- Proceed to Phase 4 after user confirmation
+- Proceed to Phase 5 after user confirmation
 
 ---
 
