@@ -13,30 +13,32 @@ One session = one summary. Previous summaries live in phase-log.md.
 2026-04-24
 
 ### Phase
-Phase 4 — Multi-Agent Hierarchy
+Phase 5 — Curriculum Learning
 
 ### What Was Done
-- Created agents.py with EvacuationAgent, DispatchAgent, CommsAgent, OrchestratorAgent, build_agent_prompt
-- OrchestratorAgent runs evac+dispatch in parallel via ThreadPoolExecutor; feeds evac action to CommsAgent
-- Safe defaults for all agents on JSON parse failure
-- Added integration smoke-test in __main__ block (3-tick mock run)
-- Created tests/unit/test_agents.py with 31 tests, all passing
-- Full regression: 224/224 tests passing
+- Created curriculum.py with CURRICULUM_LEVELS, CurriculumManager, IncidentLog, run_curriculum_episode
+- CurriculumManager uses rolling window (deque maxlen) — promotes only when window is full and mean > threshold
+- IncidentLog logs route hazard, wrong dispatch, severity mismatch, timeout events; bounded by max_entries deque
+- run_curriculum_episode loops env until done, applies first orchestrator action, accumulates reward
+- __main__ simulation runs 30 episodes with random model_fn, prints level/mean/log every 10 episodes; asserts promotion 1->2->3
+- Created tests/unit/test_curriculum.py with 31 tests, all passing
+- Full regression: 255/255 tests passing
 
 ### What Was NOT Done (carry over)
-- None — phase 4 complete
+- None — phase 5 complete
 
 ### Errors Encountered
-- None
+- Unicode encode error on Windows cp1252 with arrow char in print — fixed to ASCII ->
+- Promotion fired on every episode (not just full window) — fixed should_promote to require len(scores) >= window
 
 ### Tests Status
-Total: 224 | Passed: 224 | Failed: 0
+Total: 255 | Passed: 255 | Failed: 0
 
 ### Commit Messages Generated
-feat(agents): implement phase 4 multi-agent hierarchy with 31 tests
+feat(curriculum): implement phase 5 curriculum learning with 31 tests
 
 ### Notes for Next Session
-- Proceed to Phase 5 after user confirmation
+- Proceed to Phase 6 after user confirmation
 
 ---
 

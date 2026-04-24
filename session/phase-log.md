@@ -30,6 +30,9 @@ ROLLED BACK — changes reverted, reason in line
 [2026-04-24] [Phase 4] COMPLETE — agents.py built with 4 agent classes + build_agent_prompt
 [2026-04-24] [Phase 4] COMPLETE — 31/31 tests passing in tests/unit/test_agents.py
 
+[2026-04-24] [Phase 5] COMPLETE — curriculum.py built with CurriculumManager, IncidentLog, run_curriculum_episode
+[2026-04-24] [Phase 5] COMPLETE — 31/31 tests passing in tests/unit/test_curriculum.py
+
 ---
 
 ## Rules for This File

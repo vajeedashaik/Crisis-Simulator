@@ -8,16 +8,16 @@ Overwrite when context changes. Keep it minimal and current.
 ---
 
 ## Current Phase
-Phase: 1
-Prompt file: prompts/phase-1.md
+Phase: 5
+Prompt file: prompts/phase-5.md
 Status: complete
 
 ---
 
 ## Currently Working On
-Feature: schema.py — shared data structures
-File(s): schema.py
-Status: done — all 4 enums and 8 dataclasses implemented and verified
+Feature: curriculum.py — curriculum learning + incident log
+File(s): curriculum.py, tests/unit/test_curriculum.py
+Status: done — 31/31 tests passing, simulation runs clean
 
 ---
 
@@ -34,13 +34,13 @@ None.
 ---
 
 ## Last Commit Message
-feat: add schema.py with all enums and dataclasses for Phase 1
+feat(curriculum): implement phase 5 curriculum learning with 31 tests
 
 ---
 
 ## Do Not Forget
 
-Phase 2 requires explicit user confirmation before starting.
+Phase 6 requires explicit user confirmation before starting.
 
 ---
 
