@@ -36,6 +36,7 @@ ROLLED BACK — changes reverted, reason in line
 ---
 
 [2026-04-24] [Phase 6] COMPLETE — train.py built with GRPO/Unsloth for CrisisCoreEnv
+[2026-04-24] [Phase 7] COMPLETE — app.py + Dockerfile + README + client.py + requirements.txt
 
 ## Rules for This File
 - Never delete or overwrite any line

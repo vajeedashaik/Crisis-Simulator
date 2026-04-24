@@ -13,32 +13,30 @@ One session = one summary. Previous summaries live in phase-log.md.
 2026-04-24
 
 ### Phase
-Phase 5 — Curriculum Learning
+Phase 7 — HuggingFace Spaces Deployment Package
 
 ### What Was Done
-- Created curriculum.py with CURRICULUM_LEVELS, CurriculumManager, IncidentLog, run_curriculum_episode
-- CurriculumManager uses rolling window (deque maxlen) — promotes only when window is full and mean > threshold
-- IncidentLog logs route hazard, wrong dispatch, severity mismatch, timeout events; bounded by max_entries deque
-- run_curriculum_episode loops env until done, applies first orchestrator action, accumulates reward
-- __main__ simulation runs 30 episodes with random model_fn, prints level/mean/log every 10 episodes; asserts promotion 1->2->3
-- Created tests/unit/test_curriculum.py with 31 tests, all passing
-- Full regression: 255/255 tests passing
+- Created app.py: FastAPI wrapping CrisisCoreEnv, 4 endpoints (POST /reset, POST /step, GET /state, GET /health)
+- Created Dockerfile: python:3.11-slim, exposes 7860
+- Created README.md: HuggingFace Space YAML header + 4 sections + reward table
+- Created client.py: CrisisCoreClient class + 3-episode random demo script
+- Created requirements.txt: fastapi, uvicorn, pydantic, requests, httpx pinned
+- Tested all 4 endpoints locally with uvicorn — all 200 OK, error handling confirmed
 
 ### What Was NOT Done (carry over)
-- None — phase 5 complete
+- None — phase 7 complete
 
 ### Errors Encountered
-- Unicode encode error on Windows cp1252 with arrow char in print — fixed to ASCII ->
-- Promotion fired on every episode (not just full window) — fixed should_promote to require len(scores) >= window
+- openenv package not on PyPI — included in Dockerfile per spec but omitted from requirements.txt (not imported by code)
 
 ### Tests Status
-Total: 255 | Passed: 255 | Failed: 0
+No new unit tests (API smoke-tested manually via curl)
 
 ### Commit Messages Generated
-feat(curriculum): implement phase 5 curriculum learning with 31 tests
+feat(deployment): implement phase 7 HuggingFace Spaces deployment package
 
 ### Notes for Next Session
-- Proceed to Phase 6 after user confirmation
+- All 7 phases complete. Ready to push to HuggingFace Spaces after user confirmation.
 
 ---
 

@@ -8,16 +8,16 @@ Overwrite when context changes. Keep it minimal and current.
 ---
 
 ## Current Phase
-Phase: 6
-Prompt file: prompts/phase-6.md
+Phase: 7
+Prompt file: prompts/phase-7.md
 Status: complete
 
 ---
 
 ## Currently Working On
-Feature: train.py — GRPO training script with Unsloth/TRL
-File(s): train.py
-Status: done — script complete, Colab-ready
+Feature: HuggingFace Spaces deployment package
+File(s): app.py, Dockerfile, README.md, client.py, requirements.txt
+Status: done — all endpoints tested locally
 
 ---
 
@@ -29,18 +29,18 @@ None.
 
 ## Known Blockers
 
-None. Script requires Colab with GPU + unsloth/trl installed.
+None. openenv not on PyPI — omitted from requirements.txt, included in Dockerfile per spec.
 
 ---
 
 ## Last Commit Message
-feat(training): implement phase 6 GRPO training script with Unsloth
+feat(deployment): implement phase 7 HuggingFace Spaces deployment package
 
 ---
 
 ## Do Not Forget
 
-All 6 phases complete. Next step is user-confirmed.
+All 7 phases complete. Push to HuggingFace Spaces on user confirmation.
 
 ---
 
