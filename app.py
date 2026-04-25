@@ -9,6 +9,7 @@ from enum import Enum
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from agents import OrchestratorAgent
@@ -27,6 +28,13 @@ app = FastAPI(
     title="CrisisCore",
     description="Multi-Agent Crisis Response RL Environment",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # ---------------------------------------------------------------------------

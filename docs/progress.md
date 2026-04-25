@@ -69,12 +69,12 @@ Do not read entire codebase to understand progress — read this file.
 
 ## Phase 7 — HuggingFace Spaces Deployment
 ✅ app.py — FastAPI server wrapping CrisisCoreEnv (POST /reset, POST /step, GET /state)
+✅ app.py — CORSMiddleware added (allow_origins=["*"]) so dashboard.html works from file:// or any origin
 ✅ OrchestratorAgent wired — rule-based fallback model_fn, no LLM needed for demo
 ✅ Dockerfile — HF Spaces compatible, port 7860, uvicorn entrypoint
 ✅ requirements.txt — all deps pinned (fastapi, uvicorn, pydantic)
 ✅ client.py — demo client showing full episode via HTTP calls
 ✅ README.md — project overview and API reference
-⏳ POST /trigger-crisis — endpoint specified in phase 8 spec, not yet implemented in app.py
 
 ## Phase 8 — Dashboard
 ✅ dashboard design spec — docs/superpowers/specs/2026-04-24-dashboard-design.md (156 lines, fully detailed)
