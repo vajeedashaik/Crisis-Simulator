@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import random
+import uuid
 from dataclasses import asdict
 from enum import Enum
 from typing import Optional
@@ -16,6 +17,8 @@ from environment import CrisisCoreEnv
 from schema import (
     ActionType,
     AgentAction,
+    Hazard,
+    HazardType,
     ServiceType,
     SeverityLevel,
 )
@@ -153,6 +156,37 @@ async def state():
     """Return the full BuildingState for dashboard polling."""
     if _env.state is None:
         raise HTTPException(status_code=400, detail="No active episode — call POST /reset first.")
+    try:
+        return _to_dict(_env.state)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/trigger-crisis", summary="Inject a new hazard mid-episode")
+async def trigger_crisis():
+    """Pick a random zone not already affected by a hazard and inject a new one."""
+    if _env is None or _env.state is None:
+        raise HTTPException(status_code=400, detail="No active episode — call POST /reset first.")
+
+    affected: set[str] = set()
+    for h in _env.state.hazards.values():
+        affected.update(h.affected_zones)
+
+    available = [zid for zid in _env.state.zones if zid not in affected]
+    if not available:
+        raise HTTPException(status_code=400, detail="All zones already have active hazards.")
+
+    zone_id = random.choice(available)
+    hazard_type = random.choice(list(HazardType))
+    new_hazard = Hazard(
+        hazard_id=f"crisis_{uuid.uuid4().hex[:8]}",
+        hazard_type=hazard_type,
+        affected_zones=[zone_id],
+        spread_rate=0.3,
+        intensity=0.8,
+    )
+    _env.state.hazards[new_hazard.hazard_id] = new_hazard
+
     try:
         return _to_dict(_env.state)
     except Exception as exc:
