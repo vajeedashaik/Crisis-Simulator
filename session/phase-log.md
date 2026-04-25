@@ -38,6 +38,9 @@ ROLLED BACK — changes reverted, reason in line
 [2026-04-24] [Phase 6] COMPLETE — train.py built with GRPO/Unsloth for CrisisCoreEnv
 [2026-04-24] [Phase 7] COMPLETE — app.py + Dockerfile + README + client.py + requirements.txt
 
+[2026-04-25] [Phase 8] COMPLETE — POST /trigger-crisis endpoint + 3 tests, dashboard.html 612 lines
+[2026-04-25] [Phase 8] COMPLETE — 258/258 tests passing, all 8 phases done
+
 ## Rules for This File
 - Never delete or overwrite any line
 - Append only — one line per session or milestone

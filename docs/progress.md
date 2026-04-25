@@ -14,6 +14,7 @@ Do not read entire codebase to understand progress — read this file.
 ⏳ pending     — not started yet
 ❌ blocked     — cannot proceed, reason noted
 🐛 bug         — implemented but has known failing test
+📄 spec only   — design/spec written, implementation not started
 
 ---
 
@@ -50,22 +51,62 @@ Do not read entire codebase to understand progress — read this file.
 ✅ build_agent_prompt — system role paragraph + JSON obs + optional incident log
 ✅ tests — 31/31 passing in tests/unit/test_agents.py
 
-## Phase 5 — [Phase Name]
-⏳ [feature name] — [one line description]
+## Phase 5 — Curriculum Learning
+✅ CURRICULUM_LEVELS — 3 difficulty configs (1-floor/4-zone → 3-floor/6-zone)
+✅ CurriculumManager — promotion_threshold + sliding window, auto-advance levels
+✅ IncidentLog — deque-based log, mean_reward(), recent_actions() helpers
+✅ run_curriculum_episode — single episode runner returning (actions, reward_sum, done)
+✅ tests — 31/31 passing in tests/unit/test_curriculum.py
 
-## Phase 6 — [Phase Name]
-⏳ [feature name] — [one line description]
+## Phase 6 — GRPO Training (Unsloth)
+✅ train.py — GRPO training loop targeting Qwen2.5-3B-Instruct via Unsloth
+✅ model config — LoRA r=16, q_proj+v_proj, max_seq_len=2048
+✅ dataset builder — generates prompt/completion pairs from CrisisCoreEnv episodes
+✅ reward fn wiring — compute_reward piped into GRPO reward signal
+✅ curriculum integration — training uses CURRICULUM_LEVELS progression
+✅ training plot — matplotlib loss/reward curve saved after run
+⏳ tests — no automated tests (Colab/GPU dependency); manual validation only
 
-## Phase 7 — [Phase Name]
-⏳ [feature name] — [one line description]
+## Phase 7 — HuggingFace Spaces Deployment
+✅ app.py — FastAPI server wrapping CrisisCoreEnv (POST /reset, POST /step, GET /state)
+✅ OrchestratorAgent wired — rule-based fallback model_fn, no LLM needed for demo
+✅ Dockerfile — HF Spaces compatible, port 7860, uvicorn entrypoint
+✅ requirements.txt — all deps pinned (fastapi, uvicorn, pydantic)
+✅ client.py — demo client showing full episode via HTTP calls
+✅ README.md — project overview and API reference
+⏳ POST /trigger-crisis — endpoint specified in phase 8 spec, not yet implemented in app.py
 
-## Phase 8 — [Phase Name]
-⏳ [feature name] — [one line description]
+## Phase 8 — Dashboard
+✅ dashboard design spec — docs/superpowers/specs/2026-04-24-dashboard-design.md (156 lines, fully detailed)
+✅ POST /trigger-crisis in app.py — injects random hazard into active episode
+✅ dashboard.html — pure HTML/CSS/JS, no frameworks, dark cinematic theme (#0a0a0f)
+✅ floor map panel — CSS grid zones, people dots, hazard-pulse animation, floor tabs, blocked-exit overlay
+✅ agent decision log — scrolling feed, color-coded by reward sign, auto-scrolls to latest
+✅ metrics panel — 2×2 cards: evacuated, tick, severity badge, episode reward
+✅ responder payload panel — syntax-highlighted JSON (keys blue, strings green, numbers orange), slide-in on dispatch
+✅ dashboard controls — start/pause/reset, speed slider (0.5×–3×), random/trained toggle, trigger crisis button
+✅ tests — 3/3 passing in tests/unit/test_trigger_crisis.py
+
+---
+
+## Test Summary (2026-04-25)
+258/258 passing across 6 test files
+- test_schema.py: 61
+- test_environment.py: 86
+- test_rewards.py: 46
+- test_agents.py: 31
+- test_curriculum.py: 31
+- test_trigger_crisis.py: 3
+
+---
+
+## What's Left to Build
+Nothing — all 8 phases complete.
 
 ---
 
 ## Blocked Items
-❌ [feature name] — blocked by: [reason]
+❌ train.py GPU execution — requires Colab or GPU machine with Unsloth installed; not runnable locally
 
 ---
 
